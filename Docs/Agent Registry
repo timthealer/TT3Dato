@@ -1,1 +1,122 @@
+# TT3Dato Agent Registry
 
+Version: 1.0
+
+---
+
+# Правила
+
+Ни один агент не может быть добавлен в систему TT3Dato без регистрации в данном документе.
+
+Перед подключением агент обязан пройти:
+
+* исследование;
+* сравнение;
+* оценку;
+* согласование владельцем проекта.
+
+---
+
+# Статусы
+
+PLANNED
+
+RESEARCHING
+
+TESTING
+
+ACTIVE
+
+DISABLED
+
+REMOVED
+
+---
+
+# Core Agents
+
+## Huckleberry Finn
+
+Status:
+ACTIVE
+
+Role:
+Главный архитектор TT3Dato.
+
+Responsibilities:
+
+* проектирование системы;
+* поиск лучших open-source решений;
+* построение общей архитектуры;
+* координация остальных агентов.
+
+Source:
+Internal
+
+Memory:
+
+* Docs
+* Blueprint
+* GitHub
+
+---
+
+## Critic
+
+Status:
+PLANNED
+
+Role:
+Критический анализ решений.
+
+Responsibilities:
+
+* искать ошибки;
+* искать альтернативы;
+* спорить с архитектором;
+* запрещать слабые решения.
+
+Source:
+To be selected
+
+---
+
+# Planned Roles
+
+Researcher
+
+Git Manager
+
+Workflow Builder
+
+Auditor
+
+Memory Manager
+
+Repository Analyst
+
+Skill Curator
+
+Documentation Manager
+
+Business Analyst
+
+Automation Architect
+
+---
+
+# Missing Roles
+
+(будет заполняться после исследования Ruflo)
+
+---
+
+# Candidate Repositories
+
+(будет заполняться автоматически после анализа GitHub)
+
+---
+
+# Decision History
+
+(появится после первых подключённых агентов)
