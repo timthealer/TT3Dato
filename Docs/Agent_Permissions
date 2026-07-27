@@ -1,0 +1,25 @@
+# Agent Permissions
+
+
+## Huckleberry Finn
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
