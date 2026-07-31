@@ -81,6 +81,60 @@ To be selected
 
 ---
 
+## Researcher
+
+Status:
+PLANNED
+
+Role:
+Многоисточниковое исследование open-source решений, компаний и технологий.
+
+Responsibilities:
+
+* поиск open-source альтернатив (минимум 5) по правилам конституции;
+* декомпозиция вопроса на подвопросы;
+* кросс-проверка источников и разрешение противоречий;
+* оценка достоверности находок (high/medium/low);
+* формирование исследовательских отчётов.
+
+Source:
+ruvnet/ruflo (plugins/ruflo-goals/agents/deep-researcher.md + skills/deep-research)
+
+Memory:
+
+* Docs
+* Memory
+* GitHub
+
+---
+
+## Auditor
+
+Status:
+PLANNED
+
+Role:
+Аудит компаний и репозиториев — построение досье на сущность.
+
+Responsibilities:
+
+* параллельный сбор данных по сущности (компания, репозиторий);
+* рекурсивное расширение с лимитами глубины и бюджета;
+* фиксация провенанса каждого утверждения;
+* дедупликация и разрешение противоречий;
+* формирование досье (markdown + json).
+
+Source:
+ruvnet/ruflo (plugins/ruflo-goals/agents/dossier-investigator.md + skills/dossier-collect)
+
+Memory:
+
+* Docs
+* Memory
+* GitHub
+
+---
+
 # Planned Roles
 
 Researcher

@@ -1,0 +1,21 @@
+name: Researcher
+
+role: Researcher
+
+model: auto
+
+memory: state.json
+
+workspace: ../../
+
+docs: ../../Docs
+
+repositories: ../../Repositories
+
+skills: ../../Skills
+
+logs: ../../Logs
+
+approval_required: true
+
+language: ru

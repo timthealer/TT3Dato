@@ -23,3 +23,49 @@ FORBIDDEN:
 ❌ change Constitution
 ❌ change Agent Registry
 without approval
+
+
+## Researcher
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## Auditor
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
