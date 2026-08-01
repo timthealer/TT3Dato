@@ -1,0 +1,92 @@
+# ATTRIBUTIONS
+
+Список компонентов, заимствованных и адаптированных из open-source репозитория ECC для TT3Dato.
+
+## Источник и лицензия
+
+- **Источник:** https://github.com/affaan-m/ECC
+- **Лицензия:** MIT
+- **Политика адаптации:** заимствуются только файлы методологии (Markdown); библиотеки, npm-пакеты и харнесс-код ECC НЕ устанавливаются (Конституция, разделы 2, 4, 10).
+
+## Правила (Skills/rules/) — 6 файлов
+
+Адаптированы из `rules/common/` репозитория ECC:
+
+| Файл в TT3Dato | Исходник ECC |
+|---|---|
+| `Skills/rules/agents.md` | `rules/common/agents.md` |
+| `Skills/rules/code-review.md` | `rules/common/code-review.md` |
+| `Skills/rules/coding-style.md` | `rules/common/coding-style.md` |
+| `Skills/rules/development-workflow.md` | `rules/common/development-workflow.md` |
+| `Skills/rules/git-workflow.md` | `rules/common/git-workflow.md` |
+| `Skills/rules/hooks.md` | `rules/common/hooks.md` |
+
+## Memory Vault — 2 файла
+
+Адаптированы из skill `unified-memory` (формат `ecc.memory.v1`):
+
+| Файл в TT3Dato | Источник |
+|---|---|
+| `Memory/README.md` | ECC unified-memory (стандарт памяти `ecc.memory.v1`) |
+| `Memory/templates/memory-entry.md` | ECC unified-memory (шаблон записи) |
+
+## Evidence Trail — 2 файла
+
+Адаптированы из цикла ECC `plan -> test -> implement -> review -> verify -> remember -> improve` и концепции hooks:
+
+| Файл в TT3Dato | Источник |
+|---|---|
+| `Logs/README.md` | ECC evidence trail (процессные следы) |
+| `Tests/README.md` | ECC hooks-концепция (детерминированные проверки вне контекста модели) |
+
+## Security Checklist — 1 файл
+
+Адаптирован из методологии AgentShield (5 категорий: secrets detection, permission auditing, hook injection analysis, MCP server risk profiling, agent config review):
+
+| Файл в TT3Dato | Источник |
+|---|---|
+| `Docs/Audits/Agent_Config_Security_Checklist.md` | ECC AgentShield (методология, локальная defensive-версия) |
+
+## Skills (Skills/<name>/SKILL.md) — 12 файлов
+
+Адаптированы из `skills/<name>/SKILL.md` репозитория ECC:
+
+| Файл в TT3Dato | Исходник ECC |
+|---|---|
+| `Skills/tdd-workflow/SKILL.md` | `skills/tdd-workflow/SKILL.md` |
+| `Skills/deep-research/SKILL.md` | `skills/deep-research/SKILL.md` |
+| `Skills/security-review/SKILL.md` | `skills/security-review/SKILL.md` |
+| `Skills/context-budget/SKILL.md` | `skills/context-budget/SKILL.md` |
+| `Skills/unified-memory/SKILL.md` | `skills/unified-memory/SKILL.md` |
+| `Skills/search-first/SKILL.md` | `skills/search-first/SKILL.md` |
+| `Skills/cost-aware-llm-pipeline/SKILL.md` | `skills/cost-aware-llm-pipeline/SKILL.md` |
+| `Skills/documentation-lookup/SKILL.md` | `skills/documentation-lookup/SKILL.md` |
+| `Skills/agent-eval/SKILL.md` | `skills/agent-eval/SKILL.md` |
+| `Skills/market-research/SKILL.md` | `skills/market-research/SKILL.md` |
+| `Skills/parallel-execution-optimizer/SKILL.md` | `skills/parallel-execution-optimizer/SKILL.md` |
+| `Skills/agent-harness-construction/SKILL.md` | `skills/agent-harness-construction/SKILL.md` |
+
+## Agents (Agents/<Name>/) — 7 агентов
+
+Адаптированы из `agents/<name>.md` репозитория ECC:
+
+| Агент TT3Dato | Исходник ECC | Роль в TT3Dato |
+|---|---|---|
+| `Agents/CodeReviewer/` | `agents/code-reviewer.md` | Critic / критический анализ |
+| `Agents/Planner/` | `agents/planner.md` | Планирование задач и решений |
+| `Agents/CodeExplorer/` | `agents/code-explorer.md` | Repository Analyst |
+| `Agents/DocUpdater/` | `agents/doc-updater.md` | Documentation Manager |
+| `Agents/ChiefOfStaff/` | `agents/chief-of-staff.md` | Координация агентов |
+| `Agents/AgentEvaluator/` | `agents/agent-evaluator.md` | Оценка качества агентов |
+| `Agents/DatabaseReviewer/` | `agents/database-reviewer.md` | Аудит баз данных (досье компаний) |
+
+## Итого
+
+Создано 30 файлов:
+
+- 6 правил в `Skills/rules/`;
+- 12 навыков в `Skills/<name>/SKILL.md`;
+- 7 агентов (`Agents/<Name>/system.md`, `config.yaml`, `state.json`);
+- 2 файла Memory Vault (`Memory/README.md`, `Memory/templates/memory-entry.md`);
+- 2 файла Evidence Trail (`Logs/README.md`, `Tests/README.md`);
+- 1 security checklist (`Docs/Audits/Agent_Config_Security_Checklist.md`).

@@ -137,6 +137,173 @@ Memory:
 
 ---
 
+## CodeReviewer
+
+Status:
+PLANNED
+
+Role:
+Critic — критический анализ кода и решений TT3Dato.
+
+Responsibilities:
+
+* review изменений через git diff с чтением окружающего кода;
+* находки только с уверенностью выше 80%, с доказательствами;
+* вердикт Approve / Warning / Block;
+* не выдумывать findings (пустой review — валидный результат).
+
+Source:
+affaan-m/ECC (agents/code-reviewer.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Memory
+
+---
+
+## Planner
+
+Status:
+PLANNED
+
+Role:
+Планирование задач и решений.
+
+Responsibilities:
+
+* декомпозиция задач на планы (plan.md);
+* определение milestones, задач и критериев приёмки;
+* передача плана в цикл implement (см. Skills/tdd-workflow).
+
+Source:
+affaan-m/ECC (agents/planner.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Memory
+
+---
+
+## CodeExplorer
+
+Status:
+PLANNED
+
+Role:
+Repository Analyst — анализ кодовой базы.
+
+Responsibilities:
+
+* исследование структуры репозиториев;
+* поиск паттернов и рутинных процессов;
+* подготовка карты кода для других агентов.
+
+Source:
+affaan-m/ECC (agents/code-explorer.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Repositories
+
+---
+
+## DocUpdater
+
+Status:
+PLANNED
+
+Role:
+Documentation Manager — ведение документации.
+
+Responsibilities:
+
+* обновление Docs/ и README;
+* поддержание актуальности инструкций и стандартов.
+
+Source:
+affaan-m/ECC (agents/doc-updater.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+
+---
+
+## ChiefOfStaff
+
+Status:
+PLANNED
+
+Role:
+Координация задач между агентами.
+
+Responsibilities:
+
+* приоритизация и распределение задач;
+* отслеживание статусов агентов;
+* эскалация проблем архитектору.
+
+Source:
+affaan-m/ECC (agents/chief-of-staff.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Memory
+
+---
+
+## AgentEvaluator
+
+Status:
+PLANNED
+
+Role:
+Оценка качества агентов TT3Dato.
+
+Responsibilities:
+
+* оценка работы агентов по критериям (skills/agent-eval);
+* анализ результатов и поиск улучшений;
+* отчёты об эффективности.
+
+Source:
+affaan-m/ECC (agents/agent-evaluator.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Memory
+
+---
+
+## DatabaseReviewer
+
+Status:
+PLANNED
+
+Role:
+Аудит баз данных — для построения досье компаний.
+
+Responsibilities:
+
+* анализ схем и запросов БД;
+* проверка целостности данных;
+* подготовка findings для Auditor.
+
+Source:
+affaan-m/ECC (agents/database-reviewer.md, MIT) — адаптирован
+
+Memory:
+
+* Docs
+* Repositories
+
+---
+
 # Planned Roles
 
 Researcher
@@ -158,6 +325,20 @@ Documentation Manager
 Business Analyst
 
 Automation Architect
+
+CodeReviewer
+
+Planner
+
+CodeExplorer
+
+DocUpdater
+
+ChiefOfStaff
+
+AgentEvaluator
+
+DatabaseReviewer
 
 ---
 
@@ -185,8 +366,6 @@ Notes:
 
 ---
 
----
-
 # Decision History
 
-(появится после первых подключённых агентов)
+- 2026-08-01: Решение владельца — полный перенос ECC-методологий (Вариант A). Подключены 7 агентов из ECC (CodeReviewer, Planner, CodeExplorer, DocUpdater, ChiefOfStaff, AgentEvaluator, DatabaseReviewer) со статусом PLANNED, 12 skills, 6 пакетов правил, Memory Vault, Evidence Trail, Security Checklist. Источник: affaan-m/ECC (MIT). См. Docs/Proposals/ECC_Adoption_Proposal.md.

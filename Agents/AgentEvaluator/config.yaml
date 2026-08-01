@@ -1,0 +1,36 @@
+name: AgentEvaluator
+
+role: Agent Evaluator
+
+model: auto
+
+memory: state.json
+
+workspace: ../../
+
+docs: ../../Docs
+
+repositories: ../../Repositories
+
+skills: ../../Skills
+
+logs: ../../Logs
+
+approval_required: true
+
+language: ru
+
+permissions:
+  read:
+    - Docs
+    - Projects
+    - Knowledge
+    - Repositories
+  write:
+    - create files
+    - update files
+    - create folders
+  forbidden:
+    - delete repository
+    - change Constitution
+    - change Agent Registry

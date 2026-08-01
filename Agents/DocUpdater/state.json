@@ -1,0 +1,10 @@
+{
+  "status": "PLANNED",
+  "notes": "Агент создан из ECC (MIT), ожидает инициализации.",
+  "current_task": null,
+  "completed_tasks": [],
+  "known_agents": [],
+  "known_repositories": [],
+  "memory_version": 1,
+  "last_update": null
+}

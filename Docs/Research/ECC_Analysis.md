@@ -40,6 +40,61 @@ ECC (Enterprise Code Companion) — агентный харнесс и фрей�
 
 ---
 
+# 3.1. Детальные особенности (полный README, 2026-08-01)
+
+## Философия
+
+> «Optimize the context window. Persist everything else.»
+
+Цикл — это работающая система со «следом доказательств» (evidence trail): план, падающий тест, прошедший тест, находки ревью, финальная проверка. Результат — не только код, а вся цепочка доказательств.
+
+## Компоненты
+
+| Компонент | Что даёт | Поведение контекста |
+|---|---|---|
+| Skills | Переиспользуемые рабочие процессы (TDD, security review, deep research) | Загружаются по задаче |
+| Agents | Ограниченные исполнители со своими правами и контекстом | Изолируют plan/implement/review |
+| Rules | Постоянные стандарты по языку или проекту | Всегда загружены — ставить выборочно |
+| Hooks | Скрипты на событиях харнесса | Работают вне контекста модели |
+| Instincts | Паттерны из реальных сессий с confidence-оценкой | Вызываются по релевантности |
+
+## Ключевые подсистемы
+
+- **AgentShield** — аудитор безопасности конфигов агентов (создан на Claude Code Hackathon, Cerebral Valley x Anthropic, Feb 2026): 1282 теста, 98% покрытия, 102 правила стат. анализа. Сканирует CLAUDE.md, settings.json, MCP-конфиги, hooks, agent definitions по 5 категориям: секреты (14 паттернов), permission-аудит, hook-инъекции, MCP-риски, конфиг агентов. Флаг `--opus` запускает 3 агентов Opus 4.6 в конвейере red-team / blue-team / auditor.
+- **Memory Vault** — единый inspectable Markdown-формат памяти между харнессами (`ecc.memory.v1`), сценарии handoff (Claude <-> Codex <-> Hermes). Проектная память в `.ecc/memory/`, пользовательская в `~/.ecc/memory/`. Память — «unreviewed context», не исполнимая политика.
+- **Plan Canvas** (ECC 2.1) — ревью планов в браузере: клик по части плана, аннотации, чат, Approve / Request changes; Mermaid-диаграммы рендерятся вживую. Харнесс-агностичный CLI.
+- **TDD workflow** — gated RED -> GREEN -> REFACTOR с фиксацией свидетельств.
+- **Cross-harness** — установка в 12+ харнессов (Claude Code, Codex, Cursor, OpenCode, Gemini, Zed, Kimi, Hermes, OpenClaw, Copilot, Qwen, Antigravity...).
+- **Непрерывное обучение v2 (instincts)** — confidence-оценка, импорт/экспорт, эволюция.
+- **Selective install** — манифест-driven установка только нужных компонентов.
+- **Self-hosted compute** — запуск моделей на GPU через спонсора Itô Markets.
+
+## Монетизация OSS
+
+Репозиторий вечно MIT. Платный только hosted GitHub App `ECC Pro` (приватные репо, $19/место/мес). Спонсоры: CodeRabbit, Greptile, Atlas Cloud, Moonshot AI (Kimi), Itô Markets.
+
+---
+
+# 3.2. Чем отличается от похожих репозиториев
+
+| Критерий | ECC | Типичные аналоги (в т.ч. Ruflo) |
+|---|---|---|
+| Целостность | Полная система plan->test->implement->review->verify->remember->improve с evidence-трейлом | Набор инструментов/агентов без цельного цикла |
+| Ревью | Свежий контекст ревьюера, отдельный от автора | Код пишет и ревьюит одна сессия |
+| Память | First-class: instincts + Memory Vault + remember->improve | Часто просто сохранение транскрипта |
+| Безопасность | AgentShield сканирует сам харнесс как attack surface | Не рассматривают конфиг агента как поверхность атаки |
+| Hooks | Детерминированные проверки вне промпта | Нет |
+| Портативность | 12+ харнессов | Обычно заточен под одну среду |
+| Контекст | Rules выборочно + Skills по требованию | Зачастую «всё в сессию» |
+
+# 3.3. Хакатон и автор
+
+- **AgentShield** построен на Claude Code Hackathon (Cerebral Valley x Anthropic, Feb 2026). 1282 теста, 98% покрытия, 102 правила.
+- Автор (affaan-m) ранее выиграл Anthropic x Forum Ventures hackathon (Sep 2025) с проектом zenith.chat, построенным целиком на agentic-процессах.
+- Причины успеха AgentShield: новая ниша (безопасность конфигов агентов), продакшен-качество (тесты + CI + exit code для build gates), работа из коробки (`npx ... scan`), адверсариальный подход (3 агента Opus), трек-рекорд автора.
+
+---
+
 # 4. Архитектура (в контексте TT3Dato)
 
 - Цикл `plan -> test -> implement -> review -> verify -> remember -> improve` напрямую повторяет идею TT3Dato «постоянное самоулучшение» (Конституция, раздел 11).
