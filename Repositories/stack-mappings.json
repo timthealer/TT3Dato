@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Маппинг «задача TT3Dato -> репозиторий-решение». Адаптировано из ECC config/project-stack-mappings.json.",
+  "source": "https://github.com/affaan-m/ECC",
+  "license": "MIT",
+  "mappings": [
+    {
+      "task": "Цикл разработки агентов (plan->test->implement->review->verify->remember->improve)",
+      "solution": "ECC",
+      "status": "ACTIVE",
+      "reference": "Docs/ATTRIBUTIONS.md"
+    },
+    {
+      "task": "Многоисточниковое исследование (Researcher)",
+      "solution": "Ruflo",
+      "status": "ACTIVE",
+      "reference": "Docs/Research/Ruflo_Analysis.md"
+    },
+    {
+      "task": "Досье на компанию/репозиторий (Auditor)",
+      "solution": "Ruflo",
+      "status": "ACTIVE",
+      "reference": "Docs/Research/Ruflo_Analysis.md"
+    },
+    {
+      "task": "Экономия токенов и доступ к моделям",
+      "solution": "OmniRoute",
+      "status": "CANDIDATE",
+      "reference": "Docs/Research/OmniRoute_Analysis.md"
+    },
+    {
+      "task": "Изоляция данных клиентов при аудите",
+      "solution": "Aegis",
+      "status": "MONITORING",
+      "reference": "Docs/Research/Aegis_Analysis.md"
+    },
+    {
+      "task": "Верифицируемая память",
+      "solution": "Aegis",
+      "status": "MONITORING",
+      "reference": "Docs/Research/Aegis_Analysis.md"
+    }
+  ]
+}

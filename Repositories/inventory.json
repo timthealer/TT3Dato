@@ -1,0 +1,25 @@
+{
+  "description": "Инвентарь возможностей TT3Dato: агенты и навыки. Формат адаптирован из Ruflo verification/inventory.json.",
+  "source": "https://github.com/ruvnet/ruflo",
+  "license": "MIT",
+  "generated_at": "2026-08-01",
+  "agents": [
+    { "name": "HuckleberryFinn", "role": "Главный архитектор", "status": "ACTIVE", "source": "internal" },
+    { "name": "Researcher", "role": "Многоисточниковое исследование", "status": "PLANNED", "source": "ruvnet/ruflo" },
+    { "name": "Auditor", "role": "Аудит компаний и репозиториев", "status": "PLANNED", "source": "ruvnet/ruflo" },
+    { "name": "CodeReviewer", "role": "Критический анализ кода", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "Planner", "role": "Планирование задач", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "CodeExplorer", "role": "Анализ кодовой базы", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "DocUpdater", "role": "Ведение документации", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "ChiefOfStaff", "role": "Координация агентов", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "AgentEvaluator", "role": "Оценка качества агентов", "status": "PLANNED", "source": "affaan-m/ECC" },
+    { "name": "DatabaseReviewer", "role": "Аудит баз данных", "status": "PLANNED", "source": "affaan-m/ECC" }
+  ],
+  "skills": [
+    "tdd-workflow", "deep-research", "security-review", "context-budget",
+    "unified-memory", "search-first", "cost-aware-llm-pipeline",
+    "documentation-lookup", "agent-eval", "market-research",
+    "parallel-execution-optimizer", "agent-harness-construction"
+  ],
+  "rules": ["agents", "code-review", "coding-style", "development-workflow", "git-workflow", "hooks"]
+}

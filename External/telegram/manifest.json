@@ -1,0 +1,17 @@
+{
+  "id": "telegram",
+  "name": "Telegram Channel",
+  "version": "0.0.1",
+  "status": "CANDIDATE",
+  "priority": "post-mvp",
+  "description": "Канал коммуникации с пользователем через Telegram (паттерн Aegis deploy/broker)",
+  "source": "https://github.com/DukeDeSouth/aegis",
+  "license": "MIT",
+  "entrypoints": ["webhook", "long-polling"],
+  "capabilities": ["chat", "notifications", "commands"],
+  "config_refs": {
+    "api_key_env": "TELEGRAM_BOT_TOKEN",
+    "config_file": "connector.json"
+  },
+  "references": ["External/README.md"]
+}

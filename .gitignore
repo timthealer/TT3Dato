@@ -1,0 +1,13 @@
+# Temporary data (scratch area)
+Temp/
+
+# Node
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+*.local
+
+# Logs (process logs are committed via Logs/README.md policy; transient files ignored)
+*.log

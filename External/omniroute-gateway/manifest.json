@@ -1,0 +1,26 @@
+{
+  "id": "omniroute-gateway",
+  "name": "OmniRoute Gateway",
+  "version": "0.0.1",
+  "status": "CANDIDATE",
+  "priority": "post-mvp",
+  "description": "AI-шлюз к LLM: один endpoint для сотен провайдеров, маршрутизация, сжатие контекста",
+  "source": "https://github.com/diegosouzapw/OmniRoute",
+  "license": "MIT",
+  "entrypoints": ["/v1/chat/completions", "mcp"],
+  "capabilities": [
+    "provider-routing",
+    "context-compression",
+    "free-token-rotation",
+    "mcp-server",
+    "a2a"
+  ],
+  "config_refs": {
+    "api_key_env": "OMNIROUTE_API_KEY",
+    "config_file": "connector.json"
+  },
+  "references": [
+    "Blueprint/0004-интеграция-OmniRoute.md",
+    "Repositories/OmniRoute/dossier.md"
+  ]
+}
