@@ -31,6 +31,8 @@ DISABLED
 
 REMOVED
 
+MONITORING
+
 ---
 
 # Core Agents
@@ -167,7 +169,21 @@ Automation Architect
 
 # Candidate Repositories
 
-(будет заполняться автоматически после анализа GitHub)
+## Aegis (security patterns)
+
+Status:
+MONITORING
+
+Type:
+Candidate repository (не агент).
+
+Role:
+Наблюдение за security-паттернами: trust-домены, карантин ввода, верифицируемая память.
+
+Notes:
+Ранний MVP (DukeDeSouth/aegis, ~8 коммитов). Внедрение не планируется до стабилизации проекта. См. Docs/Research/Aegis_Analysis.md и Docs/Audits/Comparative_Analysis_Four_Repos.md.
+
+---
 
 ---
 
