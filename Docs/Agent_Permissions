@@ -69,3 +69,164 @@ FORBIDDEN:
 ❌ change Constitution
 ❌ change Agent Registry
 without approval
+
+
+## CodeReviewer
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## Planner
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## CodeExplorer
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## DocUpdater
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## ChiefOfStaff
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## AgentEvaluator
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval
+
+
+## DatabaseReviewer
+
+READ:
+✅ Docs
+✅ Projects
+✅ Knowledge
+✅ Repositories
+
+WRITE:
+После подтверждения:
+
+✅ create files
+✅ update files
+✅ create folders
+
+FORBIDDEN:
+
+❌ delete repository
+❌ change Constitution
+❌ change Agent Registry
+without approval

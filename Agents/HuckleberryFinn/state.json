@@ -1,20 +1,31 @@
 {
   "status": "idle",
   "current_task": null,
-  "completed_tasks": [],
-  "known_agents": [
-    {
-      "name": "Researcher",
-      "role": "Researcher",
-      "source": "ruvnet/ruflo"
-    },
-    {
-      "name": "Auditor",
-      "role": "Auditor",
-      "source": "ruvnet/ruflo"
-    }
+  "completed_tasks": [
+    "Исследование Ruflo, ECC, OmniRoute, Aegis (Docs/Research/*)",
+    "Сравнительный аудит четырёх репозиториев (Docs/Audits/Comparative_Analysis_Four_Repos.md)",
+    "Полный перенос ECC-методологий (коммит a2a4fe7)",
+    "Заполнение Blueprint, Repositories, External, Workflows (коммит 4d9207d)",
+    "Проверка непротиворечивости системы (Docs/Audits/System_Consistency_Check.md)"
   ],
-  "known_repositories": [],
+  "known_agents": [
+    { "name": "HuckleberryFinn", "role": "Architect", "source": "internal", "status": "ACTIVE" },
+    { "name": "Researcher", "role": "Researcher", "source": "ruvnet/ruflo", "status": "ACTIVE" },
+    { "name": "Auditor", "role": "Auditor", "source": "ruvnet/ruflo", "status": "ACTIVE" },
+    { "name": "CodeReviewer", "role": "Critic", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "Planner", "role": "Planner", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "CodeExplorer", "role": "Repository Analyst", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "DocUpdater", "role": "Documentation Manager", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "ChiefOfStaff", "role": "Chief of Staff", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "AgentEvaluator", "role": "Agent Evaluator", "source": "affaan-m/ECC", "status": "PLANNED" },
+    { "name": "DatabaseReviewer", "role": "Database Auditor", "source": "affaan-m/ECC", "status": "PLANNED" }
+  ],
+  "known_repositories": [
+    { "name": "Ruflo", "source": "https://github.com/ruvnet/ruflo", "status": "ACTIVE" },
+    { "name": "ECC", "source": "https://github.com/affaan-m/ECC", "status": "ACTIVE" },
+    { "name": "OmniRoute", "source": "https://github.com/diegosouzapw/OmniRoute", "status": "CANDIDATE" },
+    { "name": "Aegis", "source": "https://github.com/DukeDeSouth/aegis", "status": "MONITORING" }
+  ],
   "memory_version": 1,
-  "last_update": null
+  "last_update": "2026-08-01"
 }

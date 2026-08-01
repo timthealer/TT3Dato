@@ -71,6 +71,9 @@ PLANNED
 Role:
 Критический анализ решений.
 
+Note:
+Роль Critic реализована агентом CodeReviewer (см. ниже). Запись оставлена как алиас для совместимости.
+
 Responsibilities:
 
 * искать ошибки;
@@ -79,14 +82,14 @@ Responsibilities:
 * запрещать слабые решения.
 
 Source:
-To be selected
+Реализован как агент CodeReviewer (affaan-m/ECC, agents/code-reviewer.md, MIT)
 
 ---
 
 ## Researcher
 
 Status:
-PLANNED
+ACTIVE
 
 Role:
 Многоисточниковое исследование open-source решений, компаний и технологий.
@@ -113,7 +116,7 @@ Memory:
 ## Auditor
 
 Status:
-PLANNED
+ACTIVE
 
 Role:
 Аудит компаний и репозиториев — построение досье на сущность.
@@ -306,45 +309,17 @@ Memory:
 
 # Planned Roles
 
-Researcher
-
 Git Manager
 
 Workflow Builder
 
-Auditor
-
 Memory Manager
 
-Repository Analyst
-
 Skill Curator
-
-Documentation Manager
 
 Business Analyst
 
 Automation Architect
-
-CodeReviewer
-
-Planner
-
-CodeExplorer
-
-DocUpdater
-
-ChiefOfStaff
-
-AgentEvaluator
-
-DatabaseReviewer
-
----
-
-# Missing Roles
-
-(будет заполняться после исследования Ruflo)
 
 ---
 
