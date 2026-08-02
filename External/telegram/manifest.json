@@ -23,9 +23,9 @@
   },
   "owner_guard": {
     "implemented": true,
-    "status": "PR_PENDING",
+    "status": "MERGED",
     "branch": "260802-sec-owner-allowlist",
-    "note": "Ветка содержит allowlist OWNER_CHAT_ID (fail-closed), фикс ceoRules.ts, типчек и funnel. Ждёт merge + деплоя на Vercel."
+    "note": "PR #1 замержен в master (f0a38da), код в проде. Осталось: задать OWNER_CHAT_ID и GITHUB_TOKEN в Vercel env, иначе бот fail-closed."
   },
   "config_refs": {
     "api_key_env": "BOT_TOKEN",
