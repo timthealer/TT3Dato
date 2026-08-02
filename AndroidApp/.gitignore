@@ -1,0 +1,10 @@
+# Зависимости
+node_modules/
+
+# Сборка (генерируется через npx expo prebuild)
+android/
+ios/
+
+# Временные файлы
+*.log
+.DS_Store

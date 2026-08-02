@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "AI-ассистент",
+    "slug": "ai-assistant",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0F1117",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.timthealer.aiassistant",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0F1117"
+      },
+      "usesCleartextTraffic": true,
+      "predictiveBackGestureEnabled": true
+    }
+  }
+}
