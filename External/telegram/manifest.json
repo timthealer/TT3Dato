@@ -1,15 +1,21 @@
 {
   "id": "telegram",
   "name": "Telegram Channel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "CANDIDATE",
   "priority": "active",
-  "description": "Канал коммуникации с пользователем через Telegram: HuckleberryFinnBot (@HuckleberryFinn18Bot). Транспорт webhook (Vercel serverless), безопасность по образцу Aegis (токен из env, доступ только владельца по chat_id).",
+  "description": "Канал связи владельца с HuckleberryFinn через Telegram. Бот = тупой приёмник: пишет сообщения в Telegram/inbox/ репозитория TT3Dato, без LLM. Транспорт webhook (Vercel serverless), безопасность по образцу Aegis (токен из env, доступ только владельца).",
   "source": "https://github.com/DukeDeSouth/aegis",
   "license": "MIT",
   "entrypoints": ["webhook"],
   "transport": "webhook",
-  "capabilities": ["chat", "notifications", "commands"],
+  "capabilities": ["chat", "inbox", "notifications"],
+  "no_llm": true,
+  "funnel": {
+    "target_repo": "timthealer/TT3Dato",
+    "inbox_path": "Telegram/inbox/YYYY-MM-DD.md",
+    "processed_to": "Memory/unverified/ (политика ecc.memory.v1)"
+  },
   "owner_only": true,
   "owner": {
     "chat_id": 5255559756,
@@ -19,11 +25,12 @@
     "implemented": true,
     "status": "PR_PENDING",
     "branch": "260802-sec-owner-allowlist",
-    "note": "Патч src/bot.ts с allowlist по OWNER_CHAT_ID (fail-closed) запушен в форк, ждёт merge/деплоя. До merge бот отвечает любому."
+    "note": "Ветка содержит allowlist OWNER_CHAT_ID (fail-closed), фикс ceoRules.ts, типчек и funnel. Ждёт merge + деплоя на Vercel."
   },
   "config_refs": {
     "api_key_env": "BOT_TOKEN",
     "owner_chat_id_env": "OWNER_CHAT_ID",
+    "github_token_env": "GITHUB_TOKEN",
     "config_file": "connector.example.json"
   },
   "bot": {
@@ -31,5 +38,5 @@
     "display_name": "HuckleberryFinnBot",
     "id": 8843580192
   },
-  "references": ["External/README.md", "External/telegram/connector.example.json"]
+  "references": ["External/README.md", "External/telegram/connector.example.json", "Telegram/README.md"]
 }

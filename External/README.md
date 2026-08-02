@@ -27,7 +27,7 @@ External/<name>/
 | Интеграция | Статус | Описание |
 |---|---|---|
 | `omniroute-gateway` | CANDIDATE | AI-шлюз к LLM (после MVP, ADR-0004) |
-| `telegram` | CANDIDATE | Канал связи с владельцем: HuckleberryFinnBot (@HuckleberryFinn18Bot), webhook (Vercel), безопасность по Aegis (токен из env + owner chat_id allowlist). Токен создан, ожидается деплой. |
+| `telegram` | CANDIDATE | Funnel-канал в TT3Dato: бот @HuckleberryFinn18Bot (webhook/Vercel) пишет сообщения владельца в `Telegram/inbox/`, без LLM; безопасность по Aegis (токен из env + chat_id allowlist). Ветка `260802-sec-owner-allowlist` ждёт merge. |
 
 ## Аналоги в репозиториях
 

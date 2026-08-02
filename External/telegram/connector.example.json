@@ -1,30 +1,33 @@
 {
   "id": "telegram",
   "name": "Telegram Channel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "CANDIDATE",
-  "description": "Канал связи с владельцем через Telegram (HuckleberryFinnBot). Настройки по образцу Aegis: токен из env-переменной, доступ только владельца по chat_id, уведомления на tg-сессию. Транспорт — webhook (Vercel serverless), НЕ long polling (Aegis использует long polling, но Vercel не держит живой процесс).",
+  "description": "Канал связи владельца с HuckleberryFinn: бот пишет сообщения в Telegram/inbox/ репозитория TT3Dato, без LLM. Безопасность по образцу Aegis (токен из env, доступ только владельца). Транспорт — webhook (Vercel serverless), НЕ long polling.",
   "source": "https://github.com/DukeDeSouth/aegis",
   "license": "MIT",
   "env_vars": {
-    "BOT_TOKEN": "токен бота от @BotFather (реальный токен НЕ хранится в репозитории, только в Vercel env / .env gitignored). Имя переменной в коде форка: BOT_TOKEN",
-    "OWNER_CHAT_ID": "числовой chat_id владельца (определён: 5255559756, @klysheuski). Хранится в env/.env, в репозиторий не коммитится",
-    "GEMINI_API_KEY": "ключ LLM для бота (предоставляет владелец)",
-    "GITHUB_TOKEN": "токен GitHub с правом записи в timthealer/* (предоставляет владелец)"
+    "BOT_TOKEN": "токен бота от @BotFather (реальный токен НЕ хранится в репозитории, только в Vercel env / .env gitignored)",
+    "OWNER_CHAT_ID": "числовой chat_id владельца (определён: 5255559756, @klysheuski)",
+    "GITHUB_TOKEN": "токен GitHub с правом записи в timthealer/TT3Dato (предоставляет владелец)",
+    "GEMINI_API_KEY": "БОЛЬШЕ НЕ НУЖЕН — бот не использует LLM"
   },
   "session_id_format": "tg:OWNER_CHAT_ID",
   "security": {
     "owner_only": true,
-    "pairing_model": "chat_id allowlist вместо pairing_code Aegis (для webhook достаточно проверки chat_id)"
+    "pairing_model": "chat_id allowlist (fail-closed: без OWNER_CHAT_ID бот заблокирован)"
+  },
+  "funnel": {
+    "target_repo": "timthealer/TT3Dato",
+    "inbox_path": "Telegram/inbox/YYYY-MM-DD.md",
+    "reply": "Принято. Записал в <path>",
+    "processed_to": "Memory/unverified/"
   },
   "deploy": {
     "platform": "vercel",
     "repo": "https://github.com/timthealer/TTtelegram-bot-by-vercel-boilerplate",
+    "branch": "260802-sec-owner-allowlist",
     "entrypoint": "api/webhook.ts",
-    "env_setup": "Vercel -> Project Settings -> Environment Variables -> TELEGRAM_BOT_TOKEN, OWNER_CHAT_ID"
-  },
-  "notifications": {
-    "on_tg_session": "tg:OWNER_CHAT_ID",
-    "events": ["decision_required", "task_status", "audit_alerts"]
+    "env_setup": "Vercel -> Project Settings -> Environment Variables -> BOT_TOKEN, OWNER_CHAT_ID, GITHUB_TOKEN"
   }
 }
