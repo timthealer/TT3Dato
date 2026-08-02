@@ -2,11 +2,11 @@
   "clients": [
     {
       "chat_id": 5255559756,
-      "slug": "client-5255559756",
+      "slug": "test",
       "name": "Анатолий клышевский",
       "first_name": "Анатолий",
-      "company": "",
-      "status": "need_company",
+      "company": "Тест",
+      "status": "interview",
       "created": "2026-08-02"
     }
   ]
