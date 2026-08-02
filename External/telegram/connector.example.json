@@ -8,7 +8,7 @@
   "license": "MIT",
   "env_vars": {
     "BOT_TOKEN": "токен бота от @BotFather (реальный токен НЕ хранится в репозитории, только в Vercel env / .env gitignored). Имя переменной в коде форка: BOT_TOKEN",
-    "OWNER_CHAT_ID": "числовой chat_id владельца (узнать: написать боту или через @userinfobot). Сейчас в коде НЕ используется — требуется патч src/bot.ts",
+    "OWNER_CHAT_ID": "числовой chat_id владельца (определён: 5255559756, @klysheuski). Хранится в env/.env, в репозиторий не коммитится",
     "GEMINI_API_KEY": "ключ LLM для бота (предоставляет владелец)",
     "GITHUB_TOKEN": "токен GitHub с правом записи в timthealer/* (предоставляет владелец)"
   },

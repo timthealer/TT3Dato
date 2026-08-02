@@ -11,9 +11,15 @@
   "transport": "webhook",
   "capabilities": ["chat", "notifications", "commands"],
   "owner_only": true,
+  "owner": {
+    "chat_id": 5255559756,
+    "username": "@klysheuski"
+  },
   "owner_guard": {
-    "implemented": false,
-    "note": "В коде бота НЕТ allowlist по chat_id (код отвечает любому). Требуется патч src/bot.ts + OWNER_CHAT_ID. Бот имеет GITHUB_TOKEN с правом записи в репо владельца."
+    "implemented": true,
+    "status": "PR_PENDING",
+    "branch": "260802-sec-owner-allowlist",
+    "note": "Патч src/bot.ts с allowlist по OWNER_CHAT_ID (fail-closed) запушен в форк, ждёт merge/деплоя. До merge бот отвечает любому."
   },
   "config_refs": {
     "api_key_env": "BOT_TOKEN",
