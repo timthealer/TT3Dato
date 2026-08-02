@@ -1,0 +1,39 @@
+{
+  "id": "telegram-client",
+  "name": "Telegram Client Audit Bot",
+  "version": "0.1.0",
+  "status": "CANDIDATE",
+  "priority": "active",
+  "description": "Клиентский бот @Audit_TT3dato_bot: сбор информации о компании по схеме вопрос-ответ (12 базовых + до 6 уточняющих), ответы кнопками/текстом/голосом. Пишет в clients/<slug>/interview.md + voice/ в TT3Dato.",
+  "source": "https://github.com/DukeDeSouth/aegis",
+  "license": "MIT",
+  "entrypoints": ["webhook"],
+  "transport": "webhook",
+  "endpoint": "/api/client",
+  "capabilities": ["questionnaire", "voice", "inbox", "notifications"],
+  "no_llm": true,
+  "questionnaire": {
+    "base_questions": 12,
+    "followup_questions": 6,
+    "max_total": 18,
+    "answer_modes": ["buttons", "custom_text", "voice"]
+  },
+  "data": {
+    "registry": "clients/registry.json",
+    "interview": "clients/<slug>/interview.md",
+    "voice": "clients/<slug>/voice/",
+    "dossier": "clients/<slug>/dossier.md",
+    "audit": "clients/<slug>/audit.md"
+  },
+  "config_refs": {
+    "api_key_env": "CLIENT_BOT_TOKEN",
+    "github_token_env": "GITHUB_TOKEN",
+    "config_file": "connector.example.json"
+  },
+  "bot": {
+    "username": "Audit_TT3dato_bot",
+    "display_name": "Аудит",
+    "id": 8322424292
+  },
+  "references": ["External/README.md", "External/telegram-client/connector.example.json", "clients/README.md"]
+}

@@ -27,7 +27,8 @@ External/<name>/
 | Интеграция | Статус | Описание |
 |---|---|---|
 | `omniroute-gateway` | CANDIDATE | AI-шлюз к LLM (после MVP, ADR-0004) |
-| `telegram` | CANDIDATE | Funnel-канал в TT3Dato: бот @HuckleberryFinn18Bot (webhook/Vercel) пишет сообщения владельца в `Telegram/inbox/`, без LLM; безопасность по Aegis (токен из env + chat_id allowlist). Ветка `260802-sec-owner-allowlist` ждёт merge. |
+| `telegram` | CANDIDATE | Funnel-канал в TT3Dato: бот @HuckleberryFinn18Bot (webhook/Vercel) пишет сообщения владельца в `Telegram/inbox/` и файлы в `Don'tReadMe/`, без LLM; безопасность по Aegis (токен из env + chat_id allowlist). Ветка `260802-sec-owner-allowlist` MERGED. |
+| `telegram-client` | CANDIDATE | Клиентский бот @Audit_TT3dato_bot: сбор информации о компании (12–18 вопросов, кнопки/текст/голос) в `clients/<slug>/`. Ветка `260802-feat-client-bot` ждёт merge. |
 
 ## Аналоги в репозиториях
 

@@ -1,0 +1,29 @@
+{
+  "id": "telegram-client",
+  "name": "Telegram Client Audit Bot",
+  "version": "0.1.0",
+  "status": "CANDIDATE",
+  "description": "Клиентский бот для сбора информации о компании. Схема вопрос-ответ: 12 базовых вопросов, при пропусках/незнании — до 6 уточняющих (всего до 18). Ответы кнопками, своим текстом или голосовым сообщением.",
+  "source": "https://github.com/DukeDeSouth/aegis",
+  "license": "MIT",
+  "env_vars": {
+    "CLIENT_BOT_TOKEN": "токен клиентского бота от @BotFather (в Vercel env; в репозиторий не коммитится)",
+    "GITHUB_TOKEN": "общий с HuckleberryFinnBot — права записи в timthealer/TT3Dato",
+    "BOT_TOKEN": "не используется клиентским ботом (обязателен для HuckleberryFinnBot)"
+  },
+  "deploy": {
+    "platform": "vercel",
+    "repo": "https://github.com/timthealer/TTtelegram-bot-by-vercel-boilerplate",
+    "branch": "260802-feat-client-bot",
+    "endpoint": "api/client.ts",
+    "webhook_path": "/api/client",
+    "env_setup": "Vercel -> Settings -> Environment Variables -> добавить CLIENT_BOT_TOKEN; после деплоя webhook бота переключить на https://<project>.vercel.app/api/client"
+  },
+  "flow": {
+    "first_contact": "клиент пишет название компании и имя -> создаётся clients/<slug>/",
+    "interview": "бот задаёт вопросы по очереди, ответы дописываются в interview.md",
+    "complete": "после всех вопросов бот сообщает, что информация собрана",
+    "deliverable": "HuckleberryFinn строит dossier.md и audit.md (аудит + предложение)"
+  },
+  "statuses": ["interview", "dossier", "audited"]
+}
