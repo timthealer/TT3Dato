@@ -1,12 +1,3 @@
 {
-  "clients": [
-    {
-      "chat_id": 5255559756,
-      "slug": "client-5255559756",
-      "name": "Акименко Максим Валерьевич",
-      "company": "ООО Акваким",
-      "status": "interview",
-      "created": "2026-08-02"
-    }
-  ]
+  "clients": []
 }
