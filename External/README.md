@@ -27,7 +27,7 @@ External/<name>/
 | Интеграция | Статус | Описание |
 |---|---|---|
 | `omniroute-gateway` | CANDIDATE | AI-шлюз к LLM (после MVP, ADR-0004) |
-| `telegram` | CANDIDATE | Канал коммуникации (паттерн Aegis deploy/broker) |
+| `telegram` | CANDIDATE | Канал связи с владельцем: HuckleberryFinnBot (@HuckleberryFinn18Bot), webhook (Vercel), безопасность по Aegis (токен из env + owner chat_id allowlist). Токен создан, ожидается деплой. |
 
 ## Аналоги в репозиториях
 

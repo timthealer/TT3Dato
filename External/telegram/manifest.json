@@ -1,17 +1,25 @@
 {
   "id": "telegram",
   "name": "Telegram Channel",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "status": "CANDIDATE",
-  "priority": "post-mvp",
-  "description": "Канал коммуникации с пользователем через Telegram (паттерн Aegis deploy/broker)",
+  "priority": "active",
+  "description": "Канал коммуникации с пользователем через Telegram: HuckleberryFinnBot (@HuckleberryFinn18Bot). Транспорт webhook (Vercel serverless), безопасность по образцу Aegis (токен из env, доступ только владельца по chat_id).",
   "source": "https://github.com/DukeDeSouth/aegis",
   "license": "MIT",
-  "entrypoints": ["webhook", "long-polling"],
+  "entrypoints": ["webhook"],
+  "transport": "webhook",
   "capabilities": ["chat", "notifications", "commands"],
+  "owner_only": true,
   "config_refs": {
     "api_key_env": "TELEGRAM_BOT_TOKEN",
-    "config_file": "connector.json"
+    "owner_chat_id_env": "OWNER_CHAT_ID",
+    "config_file": "connector.example.json"
   },
-  "references": ["External/README.md"]
+  "bot": {
+    "username": "HuckleberryFinn18Bot",
+    "display_name": "HuckleberryFinnBot",
+    "id": 8843580192
+  },
+  "references": ["External/README.md", "External/telegram/connector.example.json"]
 }
