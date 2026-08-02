@@ -7,8 +7,10 @@
   "source": "https://github.com/DukeDeSouth/aegis",
   "license": "MIT",
   "env_vars": {
-    "TELEGRAM_BOT_TOKEN": "токен бота от @BotFather (реальный токен НЕ хранится в репозитории, только в Vercel env / .env gitignored)",
-    "OWNER_CHAT_ID": "числовой chat_id владельца (узнать: написать боту или через @userinfobot)"
+    "BOT_TOKEN": "токен бота от @BotFather (реальный токен НЕ хранится в репозитории, только в Vercel env / .env gitignored). Имя переменной в коде форка: BOT_TOKEN",
+    "OWNER_CHAT_ID": "числовой chat_id владельца (узнать: написать боту или через @userinfobot). Сейчас в коде НЕ используется — требуется патч src/bot.ts",
+    "GEMINI_API_KEY": "ключ LLM для бота (предоставляет владелец)",
+    "GITHUB_TOKEN": "токен GitHub с правом записи в timthealer/* (предоставляет владелец)"
   },
   "session_id_format": "tg:OWNER_CHAT_ID",
   "security": {

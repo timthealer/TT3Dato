@@ -11,8 +11,12 @@
   "transport": "webhook",
   "capabilities": ["chat", "notifications", "commands"],
   "owner_only": true,
+  "owner_guard": {
+    "implemented": false,
+    "note": "В коде бота НЕТ allowlist по chat_id (код отвечает любому). Требуется патч src/bot.ts + OWNER_CHAT_ID. Бот имеет GITHUB_TOKEN с правом записи в репо владельца."
+  },
   "config_refs": {
-    "api_key_env": "TELEGRAM_BOT_TOKEN",
+    "api_key_env": "BOT_TOKEN",
     "owner_chat_id_env": "OWNER_CHAT_ID",
     "config_file": "connector.example.json"
   },
