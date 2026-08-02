@@ -1,6 +1,17 @@
 # TT3Dato Agent Registry
 
-Version: 1.0
+Version: 1.1
+
+---
+
+# Модель системы
+
+TT3Dato строится вокруг **одного агента — HuckleberryFinn** (единственный ACTIVE). Прочие роли существуют как:
+
+* **MODE** — режимы работы HuckleberryFinn (Researcher, Auditor), не отдельные агенты;
+* **mode_candidate / PLANNED** — кандидаты в режимы из проверенных open-source (ECC-роли), подключаются как навыки после проверки.
+
+Никакие новые агенты не создаются без регистрации в данном документе и прохождения конвейера OpenSourceRegistry → совместимость → согласование владельцем.
 
 ---
 
@@ -26,6 +37,8 @@ RESEARCHING
 TESTING
 
 ACTIVE
+
+MODE (режим HuckleberryFinn)
 
 DISABLED
 
@@ -89,7 +102,7 @@ Source:
 ## Researcher
 
 Status:
-ACTIVE
+MODE (режим HuckleberryFinn)
 
 Role:
 Многоисточниковое исследование open-source решений, компаний и технологий.
@@ -116,7 +129,7 @@ Memory:
 ## Auditor
 
 Status:
-ACTIVE
+MODE (режим HuckleberryFinn)
 
 Role:
 Аудит компаний и репозиториев — построение досье на сущность.
@@ -344,3 +357,4 @@ Notes:
 # Decision History
 
 - 2026-08-01: Решение владельца — полный перенос ECC-методологий (Вариант A). Подключены 7 агентов из ECC (CodeReviewer, Planner, CodeExplorer, DocUpdater, ChiefOfStaff, AgentEvaluator, DatabaseReviewer) со статусом PLANNED, 12 skills, 6 пакетов правил, Memory Vault, Evidence Trail, Security Checklist. Источник: affaan-m/ECC (MIT). См. Docs/Proposals/ECC_Adoption_Proposal.md.
+- 2026-08-02: Решение владельца — приведение к модели «один агент + режимы» (план развития, Docs/предложение по развитию.md): HuckleberryFinn — единственный ACTIVE; Researcher и Auditor переведены в статус MODE (режимы HF); ECC-роли остаются PLANNED как кандидаты-режимы. OpenSourceRegistry создан (Docs/OpenSourceRegistry.md).

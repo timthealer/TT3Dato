@@ -1,10 +1,10 @@
 {
+  "kind": "mode_candidate",
+  "mode_of": "HuckleberryFinn",
+  "role": "Code Reviewer (Critic)",
   "status": "PLANNED",
-  "notes": "Агент создан из ECC (MIT), ожидает инициализации.",
+  "source": "affaan-m/ECC",
   "current_task": null,
-  "completed_tasks": [],
-  "known_agents": [],
-  "known_repositories": [],
   "memory_version": 1,
-  "last_update": null
+  "last_update": "2026-08-02"
 }

@@ -1,5 +1,7 @@
 # Auditor
 
+> **Режим работы HuckleberryFinn (audit), а не отдельный агент.** Источник: ruvnet/ruflo (dossier-investigator, MIT).
+
 ## Role
 
 Аудитор компаний и репозиториев.

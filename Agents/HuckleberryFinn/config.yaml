@@ -19,3 +19,8 @@ logs: ../../Logs
 approval_required: true
 
 language: ru
+
+# Researcher и Auditor — режимы работы HuckleberryFinn, а не отдельные агенты
+modes:
+  research: ../../Agents/Researcher/system.md
+  audit: ../../Agents/Auditor/system.md

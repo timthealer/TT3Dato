@@ -2,11 +2,14 @@
   "description": "Инвентарь возможностей TT3Dato: агенты и навыки. Формат адаптирован из Ruflo verification/inventory.json.",
   "source": "https://github.com/ruvnet/ruflo",
   "license": "MIT",
-  "generated_at": "2026-08-01",
+  "generated_at": "2026-08-02",
+  "model": "Один агент (HuckleberryFinn) + режимы. Отдельные агенты не создаются.",
   "agents": [
     { "name": "HuckleberryFinn", "role": "Главный архитектор", "status": "ACTIVE", "source": "internal" },
-    { "name": "Researcher", "role": "Многоисточниковое исследование", "status": "PLANNED", "source": "ruvnet/ruflo" },
-    { "name": "Auditor", "role": "Аудит компаний и репозиториев", "status": "PLANNED", "source": "ruvnet/ruflo" },
+    { "name": "Researcher", "role": "Многоисточниковое исследование", "status": "MODE", "source": "ruvnet/ruflo" },
+    { "name": "Auditor", "role": "Аудит компаний и репозиториев", "status": "MODE", "source": "ruvnet/ruflo" }
+  ],
+  "mode_candidates": [
     { "name": "CodeReviewer", "role": "Критический анализ кода", "status": "PLANNED", "source": "affaan-m/ECC" },
     { "name": "Planner", "role": "Планирование задач", "status": "PLANNED", "source": "affaan-m/ECC" },
     { "name": "CodeExplorer", "role": "Анализ кодовой базы", "status": "PLANNED", "source": "affaan-m/ECC" },

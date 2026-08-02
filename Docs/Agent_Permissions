@@ -1,5 +1,6 @@
 # Agent Permissions
 
+> Модель: единственный агент — HuckleberryFinn. Researcher и Auditor — его режимы (MODE), права те же. Прочие ECC-роли — кандидаты-режимы (PLANNED), прав не имеют, пока не активированы.
 
 ## Huckleberry Finn
 
@@ -7,7 +8,6 @@ READ:
 ✅ Docs
 ✅ Projects
 ✅ Knowledge
-
 
 WRITE:
 После подтверждения:
@@ -25,7 +25,7 @@ FORBIDDEN:
 without approval
 
 
-## Researcher
+## Researcher (режим HuckleberryFinn, MODE)
 
 READ:
 ✅ Docs
@@ -48,7 +48,7 @@ FORBIDDEN:
 without approval
 
 
-## Auditor
+## Auditor (режим HuckleberryFinn, MODE)
 
 READ:
 ✅ Docs

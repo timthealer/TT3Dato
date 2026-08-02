@@ -1,9 +1,11 @@
 {
-  "status": "idle",
+  "kind": "mode",
+  "mode_of": "HuckleberryFinn",
+  "role": "Audit (досье на компании и репозитории)",
+  "status": "ACTIVE",
   "current_task": null,
   "completed_tasks": [],
-  "known_agents": [],
-  "known_repositories": [],
+  "source": "ruvnet/ruflo",
   "memory_version": 1,
-  "last_update": null
+  "last_update": "2026-08-02"
 }

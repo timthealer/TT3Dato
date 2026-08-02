@@ -6,12 +6,24 @@
     "Сравнительный аудит четырёх репозиториев (Docs/Audits/Comparative_Analysis_Four_Repos.md)",
     "Полный перенос ECC-методологий (коммит a2a4fe7)",
     "Заполнение Blueprint, Repositories, External, Workflows (коммит 4d9207d)",
-    "Проверка непротиворечивости системы (Docs/Audits/System_Consistency_Check.md)"
+    "Проверка непротиворечивости системы (Docs/Audits/System_Consistency_Check.md)",
+    "Создание OpenSourceRegistry и приведение Agents/ к модели «один агент + режимы»"
+  ],
+  "modes": [
+    { "name": "research", "definition": "Agents/Researcher/system.md", "source": "ruvnet/ruflo", "status": "ACTIVE" },
+    { "name": "audit", "definition": "Agents/Auditor/system.md", "source": "ruvnet/ruflo", "status": "ACTIVE" }
   ],
   "known_agents": [
-    { "name": "HuckleberryFinn", "role": "Architect", "source": "internal", "status": "ACTIVE" },
-    { "name": "Researcher", "role": "Researcher", "source": "ruvnet/ruflo", "status": "ACTIVE" },
-    { "name": "Auditor", "role": "Auditor", "source": "ruvnet/ruflo", "status": "ACTIVE" },
+    { "name": "HuckleberryFinn", "role": "Architect", "source": "internal", "status": "ACTIVE" }
+  ],
+  "known_repositories": [
+    { "name": "Ruflo", "source": "https://github.com/ruvnet/ruflo", "status": "USED" },
+    { "name": "ECC", "source": "https://github.com/affaan-m/ECC", "status": "USED" },
+    { "name": "OmniRoute", "source": "https://github.com/diegosouzapw/OmniRoute", "status": "CANDIDATE" },
+    { "name": "Aegis", "source": "https://github.com/DukeDeSouth/aegis", "status": "MONITORING" },
+    { "name": "awesome", "source": "https://github.com/sindresorhus/awesome", "status": "USED" }
+  ],
+  "candidate_modes": [
     { "name": "CodeReviewer", "role": "Critic", "source": "affaan-m/ECC", "status": "PLANNED" },
     { "name": "Planner", "role": "Planner", "source": "affaan-m/ECC", "status": "PLANNED" },
     { "name": "CodeExplorer", "role": "Repository Analyst", "source": "affaan-m/ECC", "status": "PLANNED" },
@@ -20,12 +32,6 @@
     { "name": "AgentEvaluator", "role": "Agent Evaluator", "source": "affaan-m/ECC", "status": "PLANNED" },
     { "name": "DatabaseReviewer", "role": "Database Auditor", "source": "affaan-m/ECC", "status": "PLANNED" }
   ],
-  "known_repositories": [
-    { "name": "Ruflo", "source": "https://github.com/ruvnet/ruflo", "status": "ACTIVE" },
-    { "name": "ECC", "source": "https://github.com/affaan-m/ECC", "status": "ACTIVE" },
-    { "name": "OmniRoute", "source": "https://github.com/diegosouzapw/OmniRoute", "status": "CANDIDATE" },
-    { "name": "Aegis", "source": "https://github.com/DukeDeSouth/aegis", "status": "MONITORING" }
-  ],
   "memory_version": 1,
-  "last_update": "2026-08-01"
+  "last_update": "2026-08-02"
 }
