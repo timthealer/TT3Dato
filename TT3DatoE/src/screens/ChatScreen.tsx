@@ -39,7 +39,7 @@ export default function ChatScreen() {
     const c: Conversation = {
       id: uid("conv"),
       title: "Новый чат",
-      model: settings?.model ?? "deepseek-chat",
+      model: "auto",
       createdAt: now(),
       updatedAt: now(),
       messages: [],
@@ -67,6 +67,8 @@ export default function ChatScreen() {
     setError(null);
 
     const userMsg: Message = { id: uid("m"), role: "user", content: text, ts: now() };
+    const usedModel = settings.taskMode === "auto" ? "auto" : settings.taskMode;
+    patchActive((c) => ({ ...c, model: usedModel }));
     const systemMsg: Message = {
       id: uid("m"),
       role: "system",
@@ -109,8 +111,9 @@ export default function ChatScreen() {
       patchActive((c) => ({
         ...c,
         updatedAt: now(),
+        model: `${reply.provider} · ${reply.model}`,
         messages: c.messages.map((m) =>
-          m.id === assistantMsg.id ? { ...m, content: reply } : m
+          m.id === assistantMsg.id ? { ...m, content: reply.text } : m
         ),
       }));
     } catch (e) {
@@ -196,8 +199,9 @@ export default function ChatScreen() {
               maxWidth: 420,
             }}
           >
-            Задайте вопрос или опишите задачу. Ответы придут через ваш omni-роутер.
-            Сначала настройте адрес роутера и ключ во вкладке «Настройки».
+            Полностью бесплатный AI-ассистент. Задайте вопрос — приложение само выберет
+            лучшую бесплатную модель под задачу. Добавьте бесплатные ключи во вкладке
+            «Настройки», если ещё этого не сделали.
           </div>
           <button
             onClick={newChat}

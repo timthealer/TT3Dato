@@ -1,5 +1,5 @@
-import { DEFAULT_SETTINGS } from "./types";
-import type { Conversation, Doc, Settings, Task } from "./types";
+import { DEFAULT_PROVIDERS, DEFAULT_SETTINGS } from "./types";
+import type { Conversation, Doc, ProviderConfig, Settings, Task } from "./types";
 
 const KEYS = {
   settings: "tt3datoe.settings.v1",
@@ -26,9 +26,52 @@ function saveJSON(key: string, value: unknown): void {
   }
 }
 
+function migrateProviders(providers: ProviderConfig[] | undefined): ProviderConfig[] {
+  if (Array.isArray(providers) && providers.length > 0) {
+    const known = DEFAULT_PROVIDERS.map((p) => p.id);
+    const result = DEFAULT_PROVIDERS.map(
+      (dp) => providers.find((p) => p.id === dp.id) ?? dp
+    );
+    for (const extra of providers) {
+      if (!known.includes(extra.id)) result.push(extra);
+    }
+    return result;
+  }
+  return DEFAULT_PROVIDERS;
+}
+
 export function loadSettings(): Settings {
-  const s = loadJSON<Settings>(KEYS.settings, DEFAULT_SETTINGS);
-  return { ...DEFAULT_SETTINGS, ...s };
+  const raw = loadJSON<Record<string, unknown>>(KEYS.settings, {});
+  if (raw.providers) {
+    const s = raw as unknown as Settings;
+    return {
+      ...DEFAULT_SETTINGS,
+      ...s,
+      providers: migrateProviders(s.providers),
+    };
+  }
+  // Миграция старого формата (baseUrl / apiKey / model) в custom-провайдер
+  const legacy = raw as Record<string, unknown>;
+  const custom = DEFAULT_PROVIDERS.find((p) => p.id === "custom");
+  const providers = DEFAULT_PROVIDERS.map((p) =>
+    p.id === "custom"
+      ? {
+          ...p,
+          enabled: Boolean(legacy.baseUrl),
+          baseUrl: String(legacy.baseUrl ?? custom?.baseUrl ?? ""),
+          apiKey: String(legacy.apiKey ?? ""),
+          model: String(legacy.model ?? "auto"),
+        }
+      : p
+  );
+  return {
+    providers,
+    activeProvider: legacy.baseUrl ? "custom" : "auto",
+    taskMode: "auto",
+    temperature: typeof legacy.temperature === "number" ? legacy.temperature : 0.7,
+    maxTokens: String(legacy.maxTokens ?? ""),
+    systemPrompt: String(legacy.systemPrompt ?? DEFAULT_SETTINGS.systemPrompt),
+  };
 }
 
 export function saveSettings(s: Settings): void {
