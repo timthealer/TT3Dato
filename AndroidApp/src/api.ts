@@ -15,6 +15,21 @@ function normalizeBase(url: string): string {
   return u;
 }
 
+export function friendlyError(e: any): string {
+  const msg = e?.message ?? String(e ?? "");
+  if (e?.name === "AbortError") return "Отправка прервана.";
+  if (msg.includes("UnknownHostException"))
+    return "Не удаётся найти сервер роутера. Проверьте адрес в «Настройках» и интернет.";
+  if (msg.includes("ConnectException") || msg.includes("Connection refused"))
+    return "Не удалось подключиться к роутеру. Проверьте адрес и что сервер запущен.";
+  if (msg.includes("timeout") || msg.includes("timed out"))
+    return "Роутер не ответил вовремя. Попробуйте ещё раз.";
+  if (msg.startsWith("Ошибка 401") || msg.startsWith("Ошибка 403"))
+    return "Роутер отклонил запрос. Проверьте API-ключ в «Настройках».";
+  if (msg.startsWith("Ошибка 4")) return msg + " Проверьте адрес и запрос.";
+  return msg;
+}
+
 export async function chatCompletion(
   settings: Settings,
   messages: Message[],

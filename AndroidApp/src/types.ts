@@ -45,7 +45,7 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  baseUrl: "https://ваш-роутер.example.com/v1",
+  baseUrl: "",
   apiKey: "",
   model: "deepseek-chat",
   temperature: 0.7,

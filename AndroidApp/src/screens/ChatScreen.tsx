@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { chatCompletion } from "../api";
+import { chatCompletion, friendlyError } from "../api";
 import { loadConversations, loadSettings, saveConversations } from "../storage";
 import { Conversation, Message, Settings, uid, now } from "../types";
 import { Colors, Radius, Spacing } from "../theme";
@@ -85,13 +85,12 @@ export default function ChatScreen() {
       ts: now(),
     };
     const history = active.messages;
-    const fullHistory = history.length > 0 ? history : [systemMsg];
-    const nextMessages = [...fullHistory, userMsg];
+    const apiMessages = [systemMsg, ...history, userMsg];
     patchActive((c) => ({
       ...c,
       title: c.title === "Новый чат" ? text.slice(0, 40) : c.title,
       updatedAt: now(),
-      messages: nextMessages,
+      messages: [...c.messages, userMsg],
     }));
 
     const assistantMsg: Message = {
@@ -106,7 +105,7 @@ export default function ChatScreen() {
     const ctrl = new AbortController();
     abortRef.current = ctrl;
     try {
-      const reply = await chatCompletion(settings, nextMessages, {
+      const reply = await chatCompletion(settings, apiMessages, {
         signal: ctrl.signal,
         onDelta: (delta) => {
           patchActive((c) => ({
@@ -127,13 +126,14 @@ export default function ChatScreen() {
       }));
     } catch (e: any) {
       if (e?.name === "AbortError") return;
-      setError(e?.message ?? "Не удалось получить ответ.");
+      const friendly = friendlyError(e);
+      setError(friendly);
       patchActive((c) => ({
         ...c,
         updatedAt: now(),
         messages: c.messages.map((m) =>
           m.id === assistantMsg.id
-            ? { ...m, content: "⚠ Ошибка: " + (e?.message ?? "нет ответа") }
+            ? { ...m, content: "⚠ Ошибка: " + friendly }
             : m
         ),
       }));

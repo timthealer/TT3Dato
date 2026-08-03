@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Colors, Spacing, Radius } from "../theme";
 
 export type TabKey = "chat" | "tasks" | "models" | "files" | "settings";
@@ -18,8 +19,9 @@ interface Props {
 }
 
 export default function TabBar({ active, onChange }: Props) {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.bar}>
+    <View style={[styles.bar, { paddingBottom: insets.bottom + Spacing.sm }]}>
       {TABS.map((t) => {
         const isActive = t.key === active;
         return (
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surface,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
-    paddingVertical: Spacing.sm,
+    paddingTop: Spacing.sm,
     paddingHorizontal: Spacing.xs,
   },
   item: { flex: 1, alignItems: "center" },
