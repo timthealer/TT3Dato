@@ -73,12 +73,12 @@ export const DEFAULT_PROVIDERS: ProviderConfig[] = [
   { id: "openrouter", enabled: false, apiKey: "", baseUrl: "", model: "", accountId: "" },
   { id: "groq", enabled: false, apiKey: "", baseUrl: "", model: "", accountId: "" },
   { id: "cloudflare", enabled: false, apiKey: "", baseUrl: "", model: "", accountId: "" },
-  { id: "custom", enabled: false, apiKey: "", baseUrl: OMNIROUTE_DEFAULT_URL, model: "auto", accountId: "" },
+  { id: "custom", enabled: true, apiKey: "", baseUrl: OMNIROUTE_DEFAULT_URL, model: "auto", accountId: "" },
 ];
 
 export const DEFAULT_SETTINGS: Settings = {
   providers: DEFAULT_PROVIDERS,
-  activeProvider: "auto",
+  activeProvider: "custom",
   taskMode: "auto",
   temperature: 0.7,
   maxTokens: "",
