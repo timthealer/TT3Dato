@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { chatCompletion, friendlyError } from "../api";
 import {
+  loadActiveConv,
   loadConversations,
+  loadDraft,
   loadSettings,
+  saveActiveConv,
   saveConversations,
+  saveDraft,
 } from "../storage";
 import { Colors } from "../theme";
 import { uid, now } from "../types";
@@ -21,8 +25,24 @@ export default function ChatScreen() {
 
   useEffect(() => {
     setSettings(loadSettings());
-    setConvs(loadConversations());
+    const list = loadConversations();
+    setConvs(list);
+    const saved = loadActiveConv();
+    if (saved && list.some((c) => c.id === saved)) {
+      setActiveId(saved);
+    } else if (list.length > 0) {
+      setActiveId(list[0].id);
+    }
+    setDraft(loadDraft());
   }, []);
+
+  useEffect(() => {
+    if (activeId) saveActiveConv(activeId);
+  }, [activeId]);
+
+  useEffect(() => {
+    saveDraft(draft);
+  }, [draft]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -47,6 +67,19 @@ export default function ChatScreen() {
     persist([c, ...convs]);
     setActiveId(c.id);
     setError(null);
+  };
+
+  const switchChat = (id: string) => {
+    setActiveId(id);
+    setError(null);
+  };
+
+  const removeChat = (id: string) => {
+    const next = convs.filter((c) => c.id !== id);
+    persist(next);
+    if (activeId === id) {
+      setActiveId(next.length > 0 ? next[0].id : null);
+    }
   };
 
   const patchActive = useCallback(
@@ -162,6 +195,68 @@ export default function ChatScreen() {
           + Новый чат
         </button>
       </div>
+
+      {convs.length > 0 ? (
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            overflowX: "auto",
+            padding: "10px 16px",
+            borderBottom: `1px solid ${Colors.border}`,
+            background: Colors.surface,
+          }}
+        >
+          {convs.map((c) => {
+            const active = c.id === activeId;
+            return (
+              <div
+                key={c.id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  background: active ? Colors.accent : Colors.surfaceAlt,
+                  borderRadius: 999,
+                  padding: "6px 12px",
+                  cursor: "pointer",
+                  flexShrink: 0,
+                }}
+                onClick={() => switchChat(c.id)}
+              >
+                <span
+                  style={{
+                    color: active ? "#fff" : Colors.text,
+                    fontSize: 13,
+                    fontWeight: 600,
+                    maxWidth: 140,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {c.title}
+                </span>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeChat(c.id);
+                  }}
+                  style={{
+                    color: active ? "rgba(255,255,255,0.8)" : Colors.textDim,
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  title="Удалить чат"
+                >
+                  ✕
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
 
       {error ? (
         <div

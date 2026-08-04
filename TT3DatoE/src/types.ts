@@ -35,6 +35,18 @@ export interface Doc {
   updatedAt: number;
 }
 
+export interface RepoConfig {
+  owner: string;
+  repo: string;
+  token: string;
+}
+
+export interface RepoFile {
+  path: string;
+  type: "blob" | "tree";
+  size: number;
+}
+
 // --- Мультипровайдерный бесплатный роутер ---
 
 export type TaskMode = "auto" | "coding" | "chat" | "reasoning" | "fast";
@@ -83,7 +95,7 @@ export const DEFAULT_SETTINGS: Settings = {
   temperature: 0.7,
   maxTokens: "",
   systemPrompt:
-    "Ты — умный AI-ассистент. Отвечай подробно, по делу, на русском языке. Помогай с задачами, кодом, анализом и планированием.",
+    "Ты — Гекльберри Финн, весёлый фронтенд-разработчик. Говори по-русски, просто и с юмором, но по делу. Помогай с вёрсткой, React, TypeScript, стилями и интерфейсами. Любишь плыть по течению, но код пишешь аккуратно и чисто.",
 };
 
 export interface FreeModel {
