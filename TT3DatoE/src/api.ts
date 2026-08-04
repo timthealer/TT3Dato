@@ -31,7 +31,14 @@ function endpointFor(
         : null;
     case "openrouter":
       return p.apiKey
-        ? { base: trimSlash(PROVIDER_META.openrouter.baseUrl), headers: { Authorization: `Bearer ${p.apiKey}` } }
+        ? {
+            base: trimSlash(PROVIDER_META.openrouter.baseUrl),
+            headers: {
+              Authorization: `Bearer ${p.apiKey}`,
+              "HTTP-Referer": window.location.origin,
+              "X-Title": "TT3DatoE",
+            },
+          }
         : null;
     case "groq":
       return p.apiKey
@@ -176,6 +183,7 @@ async function readStream(
   const decoder = new TextDecoder("utf-8");
   let buffer = "";
   let full = "";
+  let streamError: string | null = null;
   for (;;) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -189,6 +197,10 @@ async function readStream(
       if (payload === "[DONE]") continue;
       try {
         const obj = JSON.parse(payload);
+        if (obj?.error) {
+          streamError = obj.error.message || obj.error.code || "Ошибка провайдера";
+          continue;
+        }
         const delta = obj?.choices?.[0]?.delta?.content;
         if (typeof delta === "string" && delta.length > 0) {
           full += delta;
@@ -199,6 +211,7 @@ async function readStream(
       }
     }
   }
+  if (streamError) throw new Error(streamError);
   if (!full) throw new Error("Роутер вернул пустой ответ.");
   return full;
 }

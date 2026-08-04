@@ -118,10 +118,14 @@ export const PROVIDER_META: Record<Exclude<ProviderId, "custom">, ProviderMeta> 
     signup: "https://openrouter.ai/keys",
     baseUrl: "https://openrouter.ai/api/v1",
     models: [
-      { id: "deepseek/deepseek-chat-v3-0324:free", label: "DeepSeek V3 (free)", tasks: ["coding", "reasoning", "chat"], quality: 5 },
-      { id: "qwen/qwen3-235b-a22b:free", label: "Qwen3 235B (free)", tasks: ["reasoning", "coding", "chat"], quality: 4 },
-      { id: "meta-llama/llama-3.3-70b-instruct:free", label: "Llama 3.3 70B (free)", tasks: ["chat", "coding"], quality: 3 },
-      { id: "meta-llama/llama-3.1-8b-instruct:free", label: "Llama 3.1 8B (free)", tasks: ["fast", "chat"], quality: 2 },
+      { id: "poolside/laguna-s-2.1:free", label: "Laguna S 2.1 (код)", tasks: ["coding", "chat"], quality: 5 },
+      { id: "openai/gpt-oss-20b:free", label: "OpenAI gpt-oss-20b", tasks: ["coding", "chat", "reasoning"], quality: 4 },
+      { id: "cohere/north-mini-code:free", label: "Cohere North Mini Code", tasks: ["coding", "chat"], quality: 4 },
+      { id: "nvidia/nemotron-3-ultra-550b-a55b:free", label: "Nemotron 3 Ultra 550B", tasks: ["reasoning", "chat"], quality: 5 },
+      { id: "nvidia/nemotron-3-super-120b-a12b:free", label: "Nemotron 3 Super 120B", tasks: ["reasoning", "chat"], quality: 4 },
+      { id: "inclusionai/ling-3.0-flash:free", label: "Ling 3.0 Flash 124B", tasks: ["chat", "coding", "fast"], quality: 3 },
+      { id: "google/gemma-4-31b-it:free", label: "Gemma 4 31B Instruct", tasks: ["chat", "fast"], quality: 3 },
+      { id: "nvidia/nemotron-nano-9b-v2:free", label: "Nemotron Nano 9B (быстрый)", tasks: ["fast", "chat"], quality: 2 },
     ],
   },
   groq: {
