@@ -308,6 +308,37 @@ export default function SettingsScreen() {
           marginTop: 16,
         }}
       >
+        Репозиторий
+      </div>
+      <Card>
+        <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+          <input
+            type="checkbox"
+            checked={settings.autoRepoContext}
+            onChange={(e) => save({ ...settings, autoRepoContext: e.target.checked })}
+          />
+          <span>
+            <span style={{ display: "block", color: Colors.text, fontSize: 15, fontWeight: 600 }}>
+              Автозагрузка файлов из репозитория
+            </span>
+            <span style={{ display: "block", color: Colors.textDim, fontSize: 12, marginTop: 2 }}>
+              Если упомянуть имя файла (например, «api.ts») — его содержимое автоматически
+              добавится в контекст для анализа.
+            </span>
+          </span>
+        </label>
+      </Card>
+
+      <div
+        style={{
+          fontSize: 13,
+          fontWeight: 800,
+          textTransform: "uppercase",
+          color: Colors.textDim,
+          marginBottom: 8,
+          marginTop: 16,
+        }}
+      >
         Режим выбора модели
       </div>
       <Card>

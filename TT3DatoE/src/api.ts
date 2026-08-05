@@ -230,9 +230,20 @@ export async function chatCompletion(
     );
   }
 
+  const hasImages = messages.some((m) => m.images && m.images.length > 0);
+
   const body: Record<string, unknown> = {
     model: candidates[0].model,
-    messages: messages.map((m) => ({ role: m.role, content: m.content })),
+    messages: messages.map((m) => ({
+      role: m.role,
+      content:
+        m.images && m.images.length > 0
+          ? [
+              { type: "text", text: m.content || "Посмотри на изображение." },
+              ...m.images.map((url) => ({ type: "image_url", image_url: { url } })),
+            ]
+          : m.content,
+    })),
     temperature: settings.temperature,
   };
   const maxTokens = parseInt(settings.maxTokens, 10);
@@ -260,8 +271,17 @@ export async function chatCompletion(
         }
         return { text: content, provider: c.providerName, model: c.model };
       }
-      const text = await readStream(res, opts.onDelta);
-      return { text, provider: c.providerName, model: c.model };
+      try {
+        const text = await readStream(res, opts.onDelta);
+        return { text, provider: c.providerName, model: c.model };
+      } catch (e) {
+        if (e instanceof Error && e.message.includes("Роутер вернул пустой ответ") && hasImages) {
+          throw new Error(
+            "Выбранная модель не поддерживает изображения. Попробуйте без картинки или опишите её текстом."
+          );
+        }
+        throw e;
+      }
     } catch (e) {
       if (e instanceof Error && e.name === "AbortError") throw e;
       lastError = e;

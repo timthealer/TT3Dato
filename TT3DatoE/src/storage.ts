@@ -10,7 +10,14 @@ const KEYS = {
   draft: "tt3datoe.draft.v1",
   tab: "tt3datoe.tab.v1",
   repo: "tt3datoe.repo.v1",
+  pendingContext: "tt3datoe.pendingContext.v1",
 };
+
+export interface PendingContext {
+  content: string;
+  title?: string;
+  ts: number;
+}
 
 function loadJSON<T>(key: string, fallback: T): T {
   try {
@@ -44,6 +51,16 @@ function migrateProviders(providers: ProviderConfig[] | undefined): ProviderConf
   return DEFAULT_PROVIDERS;
 }
 
+const LEGACY_PROMPTS = [
+  "Ты — умный AI-ассистент. Отвечай подробно, по делу, на русском языке. Помогай с задачами, кодом, анализом и планированием.",
+  "Ты — Гекльберри Финн, весёлый фронтенд-разработчик. Говори по-русски, просто и с юмором, но по делу. Помогай с вёрсткой, React, TypeScript, стилями и интерфейсами. Любишь плыть по течению, но код пишешь аккуратно и чисто.",
+];
+
+function migrateSystemPrompt(prompt: string): string {
+  if (prompt && LEGACY_PROMPTS.includes(prompt)) return DEFAULT_SETTINGS.systemPrompt;
+  return prompt || DEFAULT_SETTINGS.systemPrompt;
+}
+
 export function loadSettings(): Settings {
   const raw = loadJSON<Record<string, unknown>>(KEYS.settings, {});
   if (raw.providers) {
@@ -52,6 +69,8 @@ export function loadSettings(): Settings {
       ...DEFAULT_SETTINGS,
       ...s,
       providers: migrateProviders(s.providers),
+      // миграция старого системного промпта на нового Хакльберри Финна
+      systemPrompt: migrateSystemPrompt(String(s.systemPrompt ?? "")),
     };
   }
   // Миграция старого формата (baseUrl / apiKey / model) в custom-провайдер
@@ -75,7 +94,8 @@ export function loadSettings(): Settings {
     taskMode: "auto",
     temperature: typeof legacy.temperature === "number" ? legacy.temperature : 0.7,
     maxTokens: String(legacy.maxTokens ?? ""),
-    systemPrompt: String(legacy.systemPrompt ?? DEFAULT_SETTINGS.systemPrompt),
+    systemPrompt: migrateSystemPrompt(String(legacy.systemPrompt ?? "")),
+    autoRepoContext: true,
   };
 }
 
@@ -148,6 +168,35 @@ export function loadRepo(): RepoConfig {
 
 export function saveRepo(cfg: RepoConfig): void {
   saveJSON(KEYS.repo, cfg);
+}
+
+// --- Отложенный контекст (файл → чат) ---
+
+export function loadPendingContext(): PendingContext | null {
+  const p = loadJSON<PendingContext | null>(KEYS.pendingContext, null);
+  if (!p) return null;
+  // контекст актуален в течение 10 минут
+  if (now() - p.ts > 10 * 60 * 1000) {
+    try {
+      localStorage.removeItem(KEYS.pendingContext);
+    } catch {
+      // ignore
+    }
+    return null;
+  }
+  return p;
+}
+
+export function savePendingContext(p: PendingContext): void {
+  saveJSON(KEYS.pendingContext, p);
+}
+
+export function clearPendingContext(): void {
+  try {
+    localStorage.removeItem(KEYS.pendingContext);
+  } catch {
+    // ignore
+  }
 }
 
 // Добавляет сообщение-контекст (например, содержимое файла из репозитория)
