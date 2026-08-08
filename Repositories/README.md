@@ -23,10 +23,12 @@ Repositories/
 
 | Репозиторий | Статус | Что взяли |
 |---|---|---|
-| `Ruflo` | ACTIVE | Методология Researcher и Auditor (агенты) |
+| `Ruflo` | ACTIVE | Методология Researcher и Auditor (агенты), федерация, рои, SONA-память (core/swarm, core/federation) |
 | `ECC` | ACTIVE | Цикл, skills, агенты, rules, memory, security (см. Docs/ATTRIBUTIONS.md) |
-| `OmniRoute` | CANDIDATE | AI-шлюз (после MVP) |
-| `Aegis` | MONITORING | Trust-домены, верифицируемая память (паттерны) |
+| `OmniRoute` | CANDIDATE | AI-шлюз, стратегии маршрутизации, комбо, ротация (llm-router/) |
+| `Aegis` | MONITORING | Trust-домены, верифицируемая память, бюджет-контракты (core/trust-domains, core/memory, llm-router/budget) |
+| `atomic-agent` | CANDIDATE | Local-first, ARIA-браузер, tracing (tools/browser, tools/filesystem, tools/shell, traces/) |
+| `awesome` | ACTIVE | Методология курируемых списков (docs/awesome.md) |
 
 ## Правила добавления
 
